@@ -9,6 +9,7 @@ const { errorMiddleware } = require('./middlewares/error');
 const { authMiddleware } = require('./middlewares/auth');
 const { validateUserBody, validateAuthentication } = require('./utils/validators');
 const { PORT, DB_ADDRESS } = require('./utils/config');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 const NotFoundError = require('./errors/notFoundError');
 
 const {
@@ -35,14 +36,16 @@ mongoose.connect(DB_ADDRESS, {
 });
 
 app.use(cookieParser());
+app.use(requestLogger);
 app.post('/signin', celebrate({ body: validateAuthentication }), login);
 app.post('/signup', celebrate({ body: validateUserBody }), createUser);
 app.use(authMiddleware);
 app.use('/users', require('./routes/users'));
 app.use('/cards', require('./routes/cards'));
 
-app.use(errors());
 app.use((_, __, next) => next(new NotFoundError('Недействительный путь')));
+app.use(errorLogger);
+app.use(errors());
 app.use(errorMiddleware);
 
 app.listen(PORT, () => {
