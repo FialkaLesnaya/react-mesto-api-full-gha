@@ -1,0 +1,9 @@
+.auth__label {
+    width: 358px;
+    display: block;
+}
+
+.auth__label + .auth__label {
+    margin-top: 30px;
+}
+

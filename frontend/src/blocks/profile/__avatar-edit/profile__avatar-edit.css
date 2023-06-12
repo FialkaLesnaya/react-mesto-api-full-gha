@@ -1,0 +1,13 @@
+.profile__avatar-edit {
+    visibility: hidden;
+    transition: .2s opacity linear;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: url('../../../images/pen.svg') rgba(0, 0, 0, 0.8) no-repeat center/26px;
+    cursor: pointer;
+}

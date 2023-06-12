@@ -1,0 +1,23 @@
+.page__content {
+    font-family: 'Inter', 'Arial', sans-serif;
+    margin: auto;
+    max-width: 880px;
+    min-height: 100vh;
+    padding-top: 45px;
+    padding-bottom: 60px;
+    color: white;
+}
+
+@media screen and (max-width: 1023px) {
+    .page__content {
+        max-width: 768px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .page__content {
+        max-width: 320px;
+        padding-top: 28px;
+        padding-bottom: 36px;
+    }
+}

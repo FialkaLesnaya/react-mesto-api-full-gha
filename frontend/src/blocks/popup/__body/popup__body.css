@@ -1,0 +1,13 @@
+.popup__body {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+    margin-top: 54px;
+}
+
+@media screen and (max-width: 767px) {
+    .popup__body {
+        margin-top: 75px;
+    }
+}

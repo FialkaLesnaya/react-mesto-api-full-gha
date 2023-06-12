@@ -1,0 +1,8 @@
+.profile__avatar-wrapper {
+    position: relative;
+}
+
+.profile__avatar-wrapper:hover .profile__avatar-edit {
+    opacity: 1;
+    visibility: visible;
+}

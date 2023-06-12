@@ -1,0 +1,15 @@
+.auth__helper-link {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: opacity .4s;
+    margin-left: 8px;
+}
+
+.auth__helper-link:hover {
+    opacity: 0.6;
+}
