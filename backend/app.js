@@ -37,6 +37,11 @@ mongoose.connect(DB_ADDRESS, {
 
 app.use(cookieParser());
 app.use(requestLogger);
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 app.post('/signin', celebrate({ body: validateAuthentication }), login);
 app.post('/signup', celebrate({ body: validateUserBody }), createUser);
 app.use(authMiddleware);
