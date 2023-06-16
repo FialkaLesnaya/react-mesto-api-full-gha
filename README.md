@@ -9,8 +9,8 @@
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 158.160.27.235
 
-Frontend https://...
+Frontend [https://listik-fialki.nomoredomains.rocks](https://listik-fialki.nomoredomains.rocks)
 
-Backend https://...
+Backend [https://api.listik-fialki.nomoredomains.rocks](https://api.listik-fialki.nomoredomains.rocks)
