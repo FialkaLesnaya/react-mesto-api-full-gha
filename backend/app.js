@@ -21,6 +21,13 @@ const {
 
 const app = express();
 
+app.use((_, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://listik-fialki.nomoredomains.rocks');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  next();
+});
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(helmet());
@@ -32,13 +39,6 @@ app.use(rateLimit({
   standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
   legacyHeaders: false, // Disable the `X-RateLimit-*` headers
 }));
-app.use((_, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://listik-fialki.nomoredomains.rocks');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
-  next();
-});
 
 mongoose.connect(DB_ADDRESS, {
   useNewUrlParser: true,
