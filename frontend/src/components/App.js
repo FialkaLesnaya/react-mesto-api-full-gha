@@ -106,7 +106,7 @@ function App() {
   }, [loggedIn]);
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i === currentUser._id);
 
     Api.changeLikeCardStatus(card._id, !isLiked)
       .then(({ data }) => {
@@ -179,6 +179,7 @@ function App() {
     AuthApi.signIn(password, email)
       .then((data) => {
         if (data.token) {
+          console.log(data.token);
           localStorage.setItem("JWT_SECRET_KEY", data.token);
           setEmail(email);
           setLoggedIn(true);
@@ -194,7 +195,7 @@ function App() {
 
   function handleRegister(password, email) {
     AuthApi.signUp(password, email)
-      .then((data) => {
+      .then(() => {
         setIsErrorAuth(false);
         setIsInfoTooltipOpen(true);
       })
@@ -207,6 +208,9 @@ function App() {
   function handeLogOut() {
     localStorage.removeItem("JWT_SECRET_KEY");
     setLoggedIn(false);
+    setCards([]);
+    setEmail(null);
+    setCurrentUser(currentUserObject);
     navigate("/sign-in", { replace: true });
   }
 
