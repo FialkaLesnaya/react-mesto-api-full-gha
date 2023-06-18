@@ -11,7 +11,7 @@ const { errorMiddleware } = require('./middlewares/error');
 const { authMiddleware } = require('./middlewares/auth');
 const { validateUserBody, validateAuthentication } = require('./utils/validators');
 
-const { PORT, DB_ADDRESS } = process.env;
+const { PORT = 3000, DB_ADDRESS = 'mongodb://127.0.0.1/mestodb' } = process.env;
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const NotFoundError = require('./errors/notFoundError');
 

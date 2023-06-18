@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const { CREATION_SUCCESS_CODE } = require('../utils/utils');
 
-const { NODE_ENV, JWT_SECRET_KEY } = process.env;
+const { NODE_ENV = 'production', JWT_SECRET_KEY = 'JWT_SECRET_KEY' } = process.env;
 const NotFoundError = require('../errors/notFoundError');
 const IsExistError = require('../errors/isExistError');
 const NotCorrectValueError = require('../errors/notCorrectValueError');
