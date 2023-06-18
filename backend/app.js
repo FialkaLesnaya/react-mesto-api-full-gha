@@ -22,8 +22,7 @@ const {
 
 const app = express();
 
-// app.use(cors({ origin: 'https://listik-fialki.nomoredomains.rocks' }));
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({ origin: 'https://listik-fialki.nomoredomains.rocks' }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(helmet());
