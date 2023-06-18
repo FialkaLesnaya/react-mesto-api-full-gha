@@ -5,10 +5,12 @@ const cookieParser = require('cookie-parser');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const { errors, celebrate } = require('celebrate');
+require('dotenv').config();
 const { errorMiddleware } = require('./middlewares/error');
 const { authMiddleware } = require('./middlewares/auth');
 const { validateUserBody, validateAuthentication } = require('./utils/validators');
-const { PORT, DB_ADDRESS } = require('./utils/config');
+
+const { PORT, DB_ADDRESS } = process.env;
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const NotFoundError = require('./errors/notFoundError');
 
