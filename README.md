@@ -11,6 +11,6 @@
 
 IP-адрес 158.160.27.235
 
-Frontend [https://listik-fialki.nomoredomains.rocks](https://listik-fialki.nomoredomains.rocks)
+Frontend https://listik-fialki.nomoredomains.rocks
 
-Backend [https://api.listik-fialki.nomoredomains.rocks](https://api.listik-fialki.nomoredomains.rocks)
+Backend https://api.listik-fialki.nomoredomains.rocks
