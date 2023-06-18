@@ -53,7 +53,7 @@ module.exports.addLike = (req, res, next) => {
 
       return Card.findByIdAndUpdate(
         cardId,
-        { $pull: { likes: userId } },
+        { $addToSet: { likes: userId } },
         { new: true, runValidators: true },
       );
     })

@@ -79,13 +79,13 @@ function App() {
           console.log(`Ошибка загрузки изначальных данных ${err}`);
         });
     }
-  }, [email, navigate]);
+  }, [email]);
 
   useEffect(() => {
     if (loggedIn) {
       Api.getCurrentUser()
-        .then((userData) => {
-          setCurrentUser(userData);
+        .then(({ data }) => {
+          setCurrentUser(data);
         })
         .catch((err) => {
           console.log(`Ошибка загрузки данных ${err}`);
@@ -96,8 +96,8 @@ function App() {
   useEffect(() => {
     if (loggedIn) {
       Api.loadCards()
-        .then((userCards) => {
-          setCards(userCards);
+        .then(({ data }) => {
+          setCards(data);
         })
         .catch((err) => {
           console.log(`Ошибка загрузки изначальных данных ${err}`);
@@ -109,9 +109,9 @@ function App() {
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
 
     Api.changeLikeCardStatus(card._id, !isLiked)
-      .then((newCard) => {
+      .then(({ data }) => {
         setCards((state) =>
-          state.map((c) => (c._id === card._id ? newCard : c))
+          state.map((c) => (c._id === card._id ? data : c))
         );
       })
       .catch((err) => {
@@ -136,11 +136,11 @@ function App() {
 
   function handleUpdateUser({ name, about }) {
     Api.editProfile(name, about)
-      .then((user) => {
+      .then(({ data }) => {
         setCurrentUser({
           name: name,
           about: about,
-          avatar: user.avatar,
+          avatar: data.avatar,
         });
         closeAllPopups();
       })
@@ -151,11 +151,11 @@ function App() {
 
   function handleUpdateAvatar({ avatar }) {
     Api.updateAvatar(avatar)
-      .then((user) => {
+      .then(({ data }) => {
         setCurrentUser({
-          name: user.name,
-          about: user.about,
-          avatar: user.avatar,
+          name: data.name,
+          about: data.about,
+          avatar: data.avatar,
         });
         closeAllPopups();
       })
@@ -166,8 +166,8 @@ function App() {
 
   function handleAddPlaceSubmit({ name, link }) {
     Api.editCard(name, link)
-      .then((newCard) => {
-        setCards([newCard, ...cards]);
+      .then(({ data }) => {
+        setCards([data, ...cards]);
         closeAllPopups();
       })
       .catch((err) => {
