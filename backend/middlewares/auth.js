@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
-const { JWT_SECRET } = require('../utils/config');
+
+const { JWT_SECRET_KEY } = process.env;
 const AuthError = require('../errors/authError');
 
 module.exports.authMiddleware = (req, res, next) => {
@@ -14,7 +15,7 @@ module.exports.authMiddleware = (req, res, next) => {
   }
 
   try {
-    const payload = jwt.verify(token, JWT_SECRET);
+    const payload = jwt.verify(token, JWT_SECRET_KEY);
     req.headers.authorization = token;
     req.user = payload;
 

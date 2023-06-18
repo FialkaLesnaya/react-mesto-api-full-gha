@@ -88,9 +88,9 @@ class ApiService {
 }
 
 export const Api = new ApiService({
-  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-59",
+  baseUrl: "https://api.listik-fialki.nomoredomains.rocks",
   headers: {
-    authorization: "4f31cc87-619b-4c03-991e-9edd62906251",
+    authorization: localStorage.getItem("jwt"),
     "Content-Type": "application/json",
   },
 });

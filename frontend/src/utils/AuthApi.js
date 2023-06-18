@@ -51,7 +51,7 @@ class AuthApiService {
 }
 
 export const AuthApi = new AuthApiService({
-  baseUrl: "https://auth.nomoreparties.co",
+  baseUrl: "https://api.listik-fialki.nomoredomains.rocks",
   headers: {
     "Content-Type": "application/json",
   },
