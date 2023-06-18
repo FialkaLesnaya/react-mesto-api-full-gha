@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
+const cors = require('cors');
 const { errors, celebrate } = require('celebrate');
 require('dotenv').config();
 const { errorMiddleware } = require('./middlewares/error');
@@ -21,13 +22,7 @@ const {
 
 const app = express();
 
-app.use((_, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://listik-fialki.nomoredomains.rocks');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
-  next();
-});
+app.use(cors({ origin: 'https://listik-fialki.nomoredomains.rocks' }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(helmet());
