@@ -32,6 +32,10 @@ app.use(rateLimit({
   standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
   legacyHeaders: false, // Disable the `X-RateLimit-*` headers
 }));
+app.use((_, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://listik-fialki.nomoredomains.rocks');
+  next();
+});
 
 mongoose.connect(DB_ADDRESS, {
   useNewUrlParser: true,
