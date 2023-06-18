@@ -67,7 +67,7 @@ function App() {
   };
 
   useEffect(() => {
-    const token = localStorage.getItem("jwt");
+    const token = localStorage.getItem("JWT_SECRET_KEY");
     if (token && email == null) {
       AuthApi.checkMe(token)
         .then((response) => {
@@ -179,7 +179,7 @@ function App() {
     AuthApi.signIn(password, email)
       .then((data) => {
         if (data.token) {
-          localStorage.setItem("jwt", data.token);
+          localStorage.setItem("JWT_SECRET_KEY", data.token);
           setEmail(email);
           setLoggedIn(true);
           navigate("/", { replace: true });
@@ -205,7 +205,7 @@ function App() {
       });
   }
   function handeLogOut() {
-    localStorage.removeItem("jwt");
+    localStorage.removeItem("JWT_SECRET_KEY");
     setLoggedIn(false);
     navigate("/sign-in", { replace: true });
   }

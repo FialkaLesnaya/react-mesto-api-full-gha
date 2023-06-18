@@ -39,7 +39,6 @@ app.use((_, res, next) => {
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   next();
 });
-console.log('DBAD', DB_ADDRESS);
 
 mongoose.connect(DB_ADDRESS, {
   useNewUrlParser: true,

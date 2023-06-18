@@ -24,14 +24,10 @@ module.exports.createUser = (req, res, next) => {
     password,
   } = req.body;
 
-  console.log('CREATE');
-
   return User.findOne({ email }).then((existingUser) => {
-    console.log('CREATE1');
     if (existingUser) {
       return next(new IsExistError());
     }
-    console.log('CREATE2');
 
     return bcrypt.hash(password, 10)
       .then((hash) => User.create({
