@@ -22,7 +22,11 @@ const {
 
 const app = express();
 
-app.use(cors({ origin: 'https://listik-fialki.nomoredomains.rocks' }));
+const corsOptions = {
+  origin: ['https://listik-fialki.nomoredomains.rocks', 'http://listik-fialki.nomoredomains.rocks'],
+};
+
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(helmet());
