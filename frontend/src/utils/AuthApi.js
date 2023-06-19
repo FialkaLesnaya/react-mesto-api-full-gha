@@ -51,7 +51,7 @@ class AuthApiService {
 }
 
 export const AuthApi = new AuthApiService({
-  baseUrl: "http://localhost:3001",
+  baseUrl: "https://api.listik-fialki.nomoredomains.rocks",
   headers: {
     "Content-Type": "application/json",
   },

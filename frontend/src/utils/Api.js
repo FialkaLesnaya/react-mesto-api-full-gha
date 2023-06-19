@@ -88,7 +88,7 @@ class ApiService {
 }
 
 export const Api = new ApiService({
-  baseUrl: "http://localhost:3001",
+  baseUrl: "https://api.listik-fialki.nomoredomains.rocks",
   headers: {
     authorization: localStorage.getItem("JWT_SECRET_KEY"),
     "Content-Type": "application/json",
