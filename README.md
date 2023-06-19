@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP 158.160.27.235
+IP-адрес 158.160.27.235
 
 Frontend https://listik-fialki.nomoredomains.rocks
 
