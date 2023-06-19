@@ -23,7 +23,9 @@ const {
 const app = express();
 
 const corsOptions = {
-  origin: ['https://listik-fialki.nomoredomains.rocks', 'http://listik-fialki.nomoredomains.rocks', 'http://localhost:3000', 'https://localhost:3000'],
+  origin: ['https://listik-fialki.nomoredomains.rocks', 'http://listik-fialki.nomoredomains.rocks'],
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+  allowedHeaders: ['Content-Type'],
 };
 
 app.use(cors(corsOptions));
