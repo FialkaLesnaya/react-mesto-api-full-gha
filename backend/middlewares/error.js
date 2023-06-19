@@ -7,8 +7,8 @@ const {
   IS_EXIST_ERROR_CODE,
 } = require('../utils/utils');
 
-module.exports.errorMiddleware = (err, _, res) => {
-  res.setHeader('Content-Type', 'application/json');
+// eslint-disable-next-line no-unused-vars
+module.exports.errorMiddleware = (err, _, res, next) => {
   if (err.name === 'ValidationError' || err.name === 'CastError' || err.statusCode === NOT_CORRECT_VALUE_ERROR_CODE) {
     return res.status(NOT_CORRECT_VALUE_ERROR_CODE).send({ message: err.message || 'Ошибка валидации данных' });
   }

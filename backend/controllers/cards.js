@@ -79,9 +79,8 @@ module.exports.removeLike = (req, res, next) => {
         cardId,
         { $pull: { likes: userId } },
         { new: true, runValidators: true },
-      );
+      ).then(() => res.send({ data: card }));
     })
-    .then((card) => res.send({ data: card }))
     .catch((error) => next(error));
 };
 
