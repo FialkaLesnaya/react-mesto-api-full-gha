@@ -179,7 +179,6 @@ function App() {
     AuthApi.signIn(password, email)
       .then((data) => {
         if (data.token) {
-          console.log(data.token);
           localStorage.setItem("JWT_SECRET_KEY", data.token);
           setEmail(email);
           setLoggedIn(true);
