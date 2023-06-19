@@ -8,6 +8,7 @@ const {
 } = require('../utils/utils');
 
 module.exports.errorMiddleware = (err, _, res) => {
+  res.setHeader('Content-Type', 'application/json');
   if (err.name === 'ValidationError' || err.name === 'CastError' || err.statusCode === NOT_CORRECT_VALUE_ERROR_CODE) {
     return res.status(NOT_CORRECT_VALUE_ERROR_CODE).send({ message: err.message || 'Ошибка валидации данных' });
   }
