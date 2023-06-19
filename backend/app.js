@@ -45,7 +45,7 @@ mongoose.connect(DB_ADDRESS, {
 
 app.use(cookieParser());
 app.use(requestLogger);
-app.use((res) => res.setHeader('Content-Type', 'application/json'));
+app.use((_, res) => res.setHeader('Content-Type', 'application/json'));
 app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
