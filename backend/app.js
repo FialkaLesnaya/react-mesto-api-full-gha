@@ -43,6 +43,11 @@ mongoose.connect(DB_ADDRESS, {
   useNewUrlParser: true,
 });
 
+app.use((_, res, next) => {
+  res.setHeader('Content-Type', 'application/json');
+  next();
+});
+
 app.use(cookieParser());
 app.use(requestLogger);
 app.get('/crash-test', () => {
